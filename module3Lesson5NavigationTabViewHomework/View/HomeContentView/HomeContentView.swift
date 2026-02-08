@@ -3,47 +3,51 @@ import SwiftUI
 
 struct HomeContentView: View {
     @ObservedObject var model: ContentViewModel
+    @State private var selectedCategory: String = "Beverages"
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ProfileHeaderView(
-                    user: model.user
+        ScrollView (.vertical, showsIndicators: false) {
+            VStack(spacing: 30) {
+                ProfileHeaderView(user: model.user)
+            }
+            
+            VStack(spacing: 25) {
+                PromotionView(dotPromotion: model.user)
+            }
+            
+            if selectedCategory == "Beverages" {
+                ProductCollectionView(model: model.user)
+            } else if selectedCategory == "Foods" {
+                FoodCollectionView(model: model.user)
+            }
+            
+            
+            VStack(spacing: 39) {
+                CategoriesView(
+                    model: model.user,
+                    selectedCategory: $selectedCategory 
                 )
             }
+            
+            VStack(spacing: 20){
+                FeaturedBeveragesView(dotPromotion: model.user)
+            }
+            
+            if selectedCategory == "Beverages" {
+                BeveragesView(model: model.user)
+            } else if selectedCategory == "Foods" {
+                FoodsView(model: model.user)
+            }
         }
     }
 }
 
+ 
 
-struct ProfileHeaderView: View {
-    let user: UserPhoto
-    
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 6) {
-                Text("Good Morning")
-                    .font(.system(size: 16, weight: .regular))
-                
-                Text("Kevin Hard")
-                    .font(.system(size: 28, weight: .bold))
-            }
-            
-            Spacer()
-            
-            ZStack(alignment: .topTrailing) {
-                Image(user.userPhoto)
-                    .resizable()
-                    .frame(width: 48, height: 48)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                
-                Image(user.dotUser)
-                    .resizable()
-                    .frame(width: 15, height: 15)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .offset(x: 5, y: -5)
-            }
-        }
-        .padding()
-    }
-}
+
+
+
+
+
+
+
