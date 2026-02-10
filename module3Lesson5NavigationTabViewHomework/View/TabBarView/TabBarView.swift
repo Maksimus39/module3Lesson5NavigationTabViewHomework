@@ -4,7 +4,7 @@ struct TabBarView: View {
     @State private var selectedTab = 0
     let model: ContentViewModel
     
-    let tabs = ["home", "ic_cart", "Vector", "setting"]
+    let tabs = ["ic_home", "ic_cart", "Vector", "setting"]
     
     var body: some View {
         VStack(spacing: 0) {
