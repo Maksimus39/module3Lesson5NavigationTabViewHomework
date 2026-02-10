@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CategoriesView: View {
-    let model: UserPhoto
+    let model: CoreUserData
     @Binding var selectedCategory: String
     
     var body: some View {
@@ -59,7 +59,7 @@ struct CategoriesView: View {
                 }
                 
                 Button {
-                    selectedCategory = "Foods" // Меняем состояние
+                    selectedCategory = "Foods" 
                 } label: {
                     ZStack{
                         RoundedRectangle(cornerRadius: 22)

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ProfileHeaderView: View {
-    let user: UserPhoto
+    let user: CoreUserData
     
     var body: some View {
         HStack {

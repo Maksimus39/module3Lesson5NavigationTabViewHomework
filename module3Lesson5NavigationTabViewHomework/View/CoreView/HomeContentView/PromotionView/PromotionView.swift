@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PromotionView: View {
-    let dotPromotion: UserPhoto
+    let dotPromotion: CoreUserData
     
     var body: some View {
         

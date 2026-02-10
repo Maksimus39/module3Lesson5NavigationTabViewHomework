@@ -1,6 +1,6 @@
 import Foundation
 
-struct UserPhoto: Identifiable {
+struct CoreUserData: Identifiable {
     var id: String = UUID().uuidString
     var userPhoto: String
     var dotUser: String

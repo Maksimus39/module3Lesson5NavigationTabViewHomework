@@ -1,28 +1,28 @@
 import SwiftUI
 
-struct BeveragesView: View {
-    let model: UserPhoto
+struct FoodsView: View {
+    let model: CoreUserData
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 15) {
-                ForEach(Array(model.teas.keys).sorted(), id: \.self) { teaName in
+                ForEach(Array(model.foods.keys).sorted(), id: \.self) { foods in
                     VStack(alignment: .leading, spacing: 17) {
-                        Image(teaName)
+                        Image(foods)
                             .resizable()
                             .scaledToFill()
                             .frame(width: 205, height: 126)
                             .clipped()
                             .cornerRadius(22)
                         
-                        Text("Tea")
+                        Text("Foods")
                             .font(.system(size: 14, weight: .light))
                         
-                        Text(teaName)
+                        Text(foods)
                             .font(.system(size: 16, weight: .medium))
                         
                         HStack(spacing: 12) {
-                            Text("\(String(format: "%.1f", model.teas[teaName]!))р")
+                            Text("\(String(format: "%.1f", model.foods[foods]!))р")
                                 .font(.system(size: 24, weight: .bold))
                             
                             Image(model.dot)
@@ -36,7 +36,6 @@ struct BeveragesView: View {
                                 Text(String(format: "%.1f", Double.random(in: 1...5)))
                             }
                         }
-                        
                     }
                 }
             }

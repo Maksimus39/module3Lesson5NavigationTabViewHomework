@@ -2,7 +2,7 @@ import Foundation
 import Combine
 
 class ContentViewModel: ObservableObject, ProfileHeaderProtocol {
-    @Published var user: UserPhoto = UserPhoto(
+    @Published var user: CoreUserData = CoreUserData(
         userPhoto: "getUserPhoto",
         dotUser: "dot",
         dotPromotion: "starPromotionView",
