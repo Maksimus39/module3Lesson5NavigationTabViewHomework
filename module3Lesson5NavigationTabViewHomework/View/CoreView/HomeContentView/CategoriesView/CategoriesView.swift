@@ -17,7 +17,7 @@ struct CategoriesView: View {
                 spacing: 20
             ) {
                 Button {
-                    selectedCategory = "Beverages"
+                    selectedCategory = Section.beverages.rawValue
                 } label: {
                     ZStack{
                         RoundedRectangle(cornerRadius: 22)
@@ -59,7 +59,7 @@ struct CategoriesView: View {
                 }
                 
                 Button {
-                    selectedCategory = "Foods" 
+                    selectedCategory = Section.foods.rawValue
                 } label: {
                     ZStack{
                         RoundedRectangle(cornerRadius: 22)

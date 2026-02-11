@@ -5,6 +5,7 @@ struct ProductCollectionView: View {
     let model: CoreUserData
     
     var body: some View {
+        
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 15) {
                 ForEach(Array(model.teas.keys).sorted(), id: \.self) { teaName in
@@ -35,9 +36,16 @@ struct ProductCollectionView: View {
                                     }
                                 }
                             }
-                            .padding(.top, 45)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal)
+                                .scrollTransition { content, phase in
+                                    content
+                                        .scaleEffect(phase.isIdentity ? 1 : 0.9)
+                                        .opacity(phase.isIdentity ? 1 : 0.7)
+                                        .blur(radius: phase.isIdentity ? 0 : 0.5)
+                                        .offset(y: phase.isIdentity ? 0 : 10)
+                                }
+                                .padding(.top, 45)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal)
                         )
                 }
             }
