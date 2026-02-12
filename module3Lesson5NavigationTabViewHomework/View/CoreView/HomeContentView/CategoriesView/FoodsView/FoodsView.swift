@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct Foods: Hashable {
-    let name: String
+    let nameFoods: String
     let price: Double
+    let priceTag: String
 }
 
 struct FoodsView: View {
@@ -14,8 +15,9 @@ struct FoodsView: View {
                 HStack(spacing: 15) {
                     ForEach(Array(model.foods.keys).sorted(), id: \.self) { foodName in
                         NavigationLink(destination: DetailFoodsView(
-                            foodsName: foodName,
-                            price: model.foods[foodName] ?? 0.0
+                            nameFoods: foodName,
+                            price: model.foods[foodName] ?? 0.0,
+                            priceTag: model.priceTag
                         )) {
                             VStack(alignment: .leading, spacing: 17) {
                                 Image(foodName)
@@ -60,8 +62,10 @@ struct FoodsView: View {
         }
         .navigationDestination(for: Foods.self) { foods in
             DetailFoodsView(
-                foodsName: foods.name,
-                price: foods.price
+                nameFoods: foods.nameFoods,
+                price: foods.price,
+                priceTag: model.priceTag
+                
             )
         }
     }

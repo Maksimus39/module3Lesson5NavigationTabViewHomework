@@ -20,4 +20,6 @@ struct CoreUserData: Identifiable {
     
     var dot: String
     var rating: String
+    
+    var priceTag: String
 }

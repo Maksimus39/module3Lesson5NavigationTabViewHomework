@@ -1,6 +1,6 @@
 import Combine
 
 
-protocol ProfileHeaderProtocol: ObservableObject {
+protocol AppProtokol: ObservableObject {
     var user: CoreUserData { get }
 }

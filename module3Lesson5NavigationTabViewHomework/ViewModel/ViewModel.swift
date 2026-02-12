@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-class ContentViewModel: ObservableObject, ProfileHeaderProtocol {
+class ContentViewModel: ObservableObject, AppProtokol {
     @Published var user: CoreUserData = CoreUserData(
         userPhoto: "getUserPhoto",
         dotUser: "dot",
@@ -143,6 +143,7 @@ class ContentViewModel: ObservableObject, ProfileHeaderProtocol {
         vectorModelCups: "VectoCup",
         vectorModelBurger: "VectorBurger",
         dot: "dot 1",
-        rating: "rating"
+        rating: "rating",
+        priceTag: "price-tag 1"
     )
 }

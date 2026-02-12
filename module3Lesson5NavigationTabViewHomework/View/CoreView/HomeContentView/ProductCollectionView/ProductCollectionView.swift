@@ -47,6 +47,10 @@ struct ProductCollectionView: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.horizontal)
                         )
+                        .scrollTransition { content, phase in
+                            content
+                                .scaleEffect(phase.isIdentity ? 1 : 0.9)
+                        }
                 }
             }
             .padding(.horizontal)

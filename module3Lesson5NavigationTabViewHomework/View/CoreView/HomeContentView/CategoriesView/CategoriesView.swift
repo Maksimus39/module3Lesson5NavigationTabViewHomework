@@ -19,7 +19,7 @@ struct CategoriesView: View {
                 Button {
                     selectedCategory = Section.beverages.rawValue
                 } label: {
-                    ZStack{
+                    ZStack {
                         RoundedRectangle(cornerRadius: 22)
                             .fill(.rootColorApplication)
                             .frame(height: 156)
@@ -53,15 +53,16 @@ struct CategoriesView: View {
                                     }
                                     Spacer()
                                 }
-                                    .padding(.leading, 18)
+                                .padding(.leading, 18)
                             )
                     }
                 }
+                .buttonStyle(PlainButtonStyle())
                 
                 Button {
                     selectedCategory = Section.foods.rawValue
                 } label: {
-                    ZStack{
+                    ZStack {
                         RoundedRectangle(cornerRadius: 22)
                             .fill(.rootColorApplication)
                             .frame(height: 156)
@@ -95,17 +96,13 @@ struct CategoriesView: View {
                                     }
                                     Spacer()
                                 }
-                                    .padding(.leading, 18)
+                                .padding(.leading, 18)
                             )
                     }
                 }
+                .buttonStyle(PlainButtonStyle())
             }
         }
         .padding()
     }
 }
-
-
-
-
-

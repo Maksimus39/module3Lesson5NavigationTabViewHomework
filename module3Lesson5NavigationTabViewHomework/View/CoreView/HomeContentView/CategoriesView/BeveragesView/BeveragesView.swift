@@ -3,6 +3,7 @@ import SwiftUI
 struct Tea: Hashable {
     let name: String
     let price: Double
+    let priceTag: String
 }
 
 struct BeveragesView: View {
@@ -15,7 +16,8 @@ struct BeveragesView: View {
                     ForEach(Array(model.teas.keys).sorted(), id: \.self) { teaName in
                         NavigationLink(destination: DetailsBeveragesView(
                             teaName: teaName,
-                            price: model.teas[teaName] ?? 0.0
+                            price: model.teas[teaName] ?? 0.0,
+                            priceTag: model.priceTag,
                         )) {
                             VStack(alignment: .leading, spacing: 17) {
                                 Image(teaName)
@@ -61,7 +63,8 @@ struct BeveragesView: View {
         .navigationDestination(for: Tea.self) { teaName in
             DetailsBeveragesView(
                 teaName: teaName.name,
-                price: teaName.price
+                price: teaName.price,
+                priceTag: teaName.priceTag,
             )
         }
     }
